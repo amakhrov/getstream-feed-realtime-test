@@ -1,0 +1,7 @@
+{
+  "appId": "50845",
+  "apiKey": "7jr5g4ee2zgv",
+  "feedGroup": "user_notifications",
+  "feedId": "test-user",
+  "accessToken": "% run scripts/feed-auth.js to populate this %"
+}
