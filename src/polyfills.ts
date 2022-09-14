@@ -45,9 +45,11 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js';  // Included with Angular CLI.
-
+import 'zone.js'; // Included with Angular CLI.
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// Define global so it's available to getstream's use of the faye sockets lib
+// See https://stackoverflow.com/questions/54201934/referenceerror-global-is-not-defined-with-stream-and-angular-7-1
+(window as any).global = window;
