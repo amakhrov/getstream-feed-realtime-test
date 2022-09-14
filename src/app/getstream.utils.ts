@@ -11,6 +11,14 @@ export function subscribeToFeed<T extends DefaultGenerics>(
   feed: StreamFeed<T>
 ): Observable<RealTimeMessage<T>> {
   return new Observable<RealTimeMessage<T>>((subscriber) => {
+    const fayeClient = feed.getFayeClient() as any;
+    fayeClient.on('transport:down', (...args: any[]) =>
+      console.log(new Date().toISOString(), 'Faye transport down', args)
+    );
+    fayeClient.on('transport:up', (...args: any[]) =>
+      console.log(new Date().toISOString(), 'Faye transport up', args)
+    );
+
     const cancelPromise = feed
       .subscribe((data) => {
         subscriber.next(data);
