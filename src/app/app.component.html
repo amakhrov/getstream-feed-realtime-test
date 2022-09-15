@@ -6,13 +6,11 @@
 <h2>Feed data</h2>
 
 <h3>Realtime updates</h3>
-<ng-container *ngIf="realtimeData$ | async as realtimeData">
-  <div *ngFor="let item of realtimeData" class="feed-item">
-    <pre>{{ item | json }}</pre>
-  </div>
-  <ng-container *ngIf="realtimeData.length === 0">
-    no realtime updates yet
-  </ng-container>
+<div *ngFor="let item of realtimeItems" class="feed-item">
+  <pre>{{ item | json }}</pre>
+</div>
+<ng-container *ngIf="realtimeItems.length === 0">
+  no realtime updates yet
 </ng-container>
 
 <h3>Initial feed data</h3>
